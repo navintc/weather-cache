@@ -1,0 +1,11 @@
+.weather{
+    background-image: url("../../assets/img/Header bg.jpg");
+    min-height: 100vh;
+    background-repeat: no-repeat;
+    background-color: #1d2027;
+    background-size: 100%;
+}
+
+.logo-bar{
+    padding-top:6vh;
+}
