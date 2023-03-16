@@ -1,3 +1,22 @@
+@font-face {
+  font-family: opensans-bold;
+  src: url(assets/fonts/OpenSans-Bold.ttf);
+}
+
+@font-face {
+  font-family: opensans-reg;
+  src: url(assets/fonts/OpenSans-Regular.ttf);
+}
+
+@font-face {
+  font-family: opensans-semi;
+  src: url(assets/fonts/OpenSans-SemiBold.ttf);
+}
+
+p{
+  font-family: opensans-reg;
+}
+
 .App {
   text-align: center;
 }
@@ -36,3 +55,4 @@
     transform: rotate(360deg);
   }
 }
+

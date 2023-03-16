@@ -1,0 +1,75 @@
+.city-card{
+    margin-left: 0rem;
+    margin-right: 0rem;
+    margin-top: 2rem;
+    min-height: 15rem;
+    border: 0px !important;
+   
+}
+
+.small-p{
+    font-size: 12px;
+    
+}
+.town{
+    margin-top:10px;
+}
+.left-align{
+    text-align: left;
+    margin-left: 5px;
+}
+.txt-location{
+    font-family: opensans-bold;
+}
+.txt-temp{
+    font-family: opensans-bold;
+    font-size: 3.5rem;
+}
+.txt-celc{
+    font-family: opensans-reg;
+    font-size: 2.5rem;
+}
+.card-top{
+    
+    
+    background-image: url(../../../../../../assets/img/cloud\ bg.png);
+    color: white;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    padding:0.5rem;
+    background-repeat: no-repeat;
+    background-position: 0px 3rem;
+}
+.card-top-marg{
+    margin: 2rem;
+}
+.close{
+    width:5px;
+    float: right;
+    margin-right: 13px;
+}
+
+.card-bot{
+    background-color: #383b47;
+    padding:1.4rem;
+    color: white;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+}
+.line{
+    width:1px;
+    height: 3.5rem;
+    background-color: rgba(255, 255, 255, 0.061);
+}
+
+.wind-ico{
+    margin-bottom: 0.4rem;
+}
+
+.info-type{
+    font-family: openSans-semi;
+}
+
+.no-bot-mar{
+    margin-bottom: 0px;
+}
