@@ -37,6 +37,11 @@ function City(props){
     var citydateampm = citydatehours >= 12 ? 'pm' : 'am';
     var citydateFormattedTime = `${citydatehours % 12 || 12}:${citydateminutes < 10 ? '0' : ''}${citydateminutes}${citydateampm} , ${month} ${day} `;
     
+
+    //wind degree
+    var winddegree = {transform: `rotate(${props.speeddeg - 45}deg)`};
+    console.log(winddegree);
+
     return(
         
             <Col md={6}>
@@ -86,7 +91,7 @@ function City(props){
 
                         <Col className="small-p ">
                             <div>
-                                <img src={Wind} className="wind-ico"/>
+                                <img src={Wind} style={winddegree} className="wind-ico"/>
                             </div>
                             <p className="no-bot-mar">{props.wind}m/s {props.speeddeg}Degree</p>
                         </Col>
