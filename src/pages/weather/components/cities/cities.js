@@ -38,7 +38,7 @@ function Cities(){
                                 <>
                                     {/* {console.log(dat) } */}
                                     {console.log(dat)}
-                                    <City key={dat.id} id={dat.id} name={dat.name} weather={dat.weather} date={dat.dt} id={dat.id} temp={dat.main.temp} 
+                                    <City key={dat.id} id={dat.id} name={dat.name} weather={dat.weather} date={dat.dt} temp={dat.main.temp} 
                                     humidity={dat.main.humidity} pressure={dat.main.pressure} maxtemp={dat.main.temp_max} 
                                     mintemp={dat.main.temp_min} visibility={dat.visibility} wind={dat.wind.speed} 
                                     sunrise={dat.sys.sunrise} country={dat.sys.country} sunset={dat.sys.sunset} speeddeg={dat.wind.deg}/>

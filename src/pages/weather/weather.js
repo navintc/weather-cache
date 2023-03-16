@@ -6,6 +6,8 @@ import cityData from "../../json/cities.json";
 import { updateDataPack } from '../../redux/dataSlice';
 import { useSelector, useDispatch } from 'react-redux';
 import Cities from './components/cities/cities';
+import Footerw from '../../components/footer/footer';
+// import LargeCard from './components/largeCard/largeCard';
 
 
 function Weather(){
@@ -24,7 +26,7 @@ function Weather(){
         let nowtime = new Date().getTime();
 
         //axios call
-        if ((nowtime-timeState == (5*60)) || dataState == null ){
+        if ((nowtime-timeState === (5*60)) || dataState === null ){
             for (var i = 0; i < cityData.List.length; i++){
                 getWeatherData(cityData.List[i].CityCode)
                 .then(data =>{
@@ -58,12 +60,10 @@ function Weather(){
         <div className='weather'>
             <div className='logo-bar'>
                 <LogoWeather/>
-                <Cities/>              
+                <Cities/>
+                <Footerw/>            
             </div>
-            
-
         </div>
-
     );
 
 }

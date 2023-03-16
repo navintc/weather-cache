@@ -1,0 +1,38 @@
+.large-card-top{
+    color: white;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+
+    padding:0.5rem;
+    background-repeat: no-repeat;
+    background-position: 0px 3rem;
+}
+.card-root{
+    padding-top:3rem;
+    padding-bottom:2rem;
+}
+
+.upper-root{
+    padding-top:4vh;
+}
+.back{
+    width:5px;
+    float: left;
+    margin-left: 13px;
+}
+
+.line2{
+    width:1px;
+    height: 7rem;
+    background-color: rgba(255, 255, 255, 0.168);
+}
+.data-body{
+
+}
+
+.txt-temp2{
+    
+    font-family: opensans-semi;
+    font-size: 3rem;
+    
+}

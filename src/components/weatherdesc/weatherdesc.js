@@ -1,7 +1,8 @@
-import Clouds from "../../../../../../../assets/img/clouds.png";
-import ClearSky from "../../../../../../../assets/img/clear sky.png";
-import LightRain from "../../../../../../../assets/img/lightrain.png";
-import BrokenClouds from "../../../../../../../assets/img/broken-clouds.png";
+import Clouds from "../../assets/img/clouds.png";
+import ClearSky from "../../assets/img/clear sky.png";
+import LightRain from "../../assets/img/lightrain.png";
+import BrokenClouds from "../../assets/img/broken-clouds.png";
+
 
 import "./weatherdesc.css"
 function Weatherdesc(props){

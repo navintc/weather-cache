@@ -2,7 +2,7 @@ import { Card, Col } from "react-bootstrap";
 import "./city.css";
 import Wind from "../../../../../../assets/img/wind.png";
 import Close from "../../../../../../assets/img/close.png";
-import Weatherdesc from "./components/weatherdesc";
+import Weatherdesc from "../../../../../../components/weatherdesc/weatherdesc";
 
 function City(props){
 
@@ -42,11 +42,19 @@ function City(props){
     var winddegree = {transform: `rotate(${props.speeddeg - 45}deg)`};
     console.log(winddegree);
 
+    //random dark color generator
+    var color = '#';
+    for (var i = 0; i < 6; i++) {
+        color += Math.floor(Math.random() * 10);
+    }
+    // var randomColor = {backgroundColor: `#${Math.floor(Math.random()*16777215).toString(16)}`};
+    var randomColor = {backgroundColor: `${color}`};
+
     return(
         
             <Col md={6}>
                 <Card className="city-card">
-                    <div className="card-top" style={{backgroundColor: "#2d813f"}}>
+                    <div className="card-top" style={randomColor}>
 
                         <div className="close-bar">
                             <div className="close">
