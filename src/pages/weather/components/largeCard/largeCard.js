@@ -88,7 +88,7 @@ function LargeCard(props){
                             </div>
                         </div>
 
-                        <div className="card-root">
+                        <div className="card-root2">
                             <h4 className="txt-location">{dataState.name}, {dataState.country}</h4>
                             <p>{citydateFormattedTime}</p>
                         </div>
