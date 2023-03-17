@@ -3,8 +3,17 @@ import "./city.css";
 import Wind from "../../../../../../assets/img/wind.png";
 import Close from "../../../../../../assets/img/close.png";
 import Weatherdesc from "../../../../../../components/weatherdesc/weatherdesc";
+import { selectlocation } from '../../../../../../redux/switcherSlice';
+import { useSelector, useDispatch } from 'react-redux';
 
 function City(props){
+
+    const dispatch = useDispatch();
+
+    const selectLoc = () =>{
+        dispatch(selectlocation(props.name));
+        // console.log(props.name);
+    }
 
     var sunrise = props.sunrise;
     var sunset = props.sunset;
@@ -40,7 +49,7 @@ function City(props){
 
     //wind degree
     var winddegree = {transform: `rotate(${props.speeddeg - 45}deg)`};
-    console.log(winddegree);
+
 
     //random dark color generator
     var color = '#';
@@ -52,7 +61,7 @@ function City(props){
 
     return(
         
-            <Col md={6}>
+            <Col md={6} onClick={selectLoc}>
                 <Card className="city-card">
                     <div className="card-top" style={randomColor}>
 

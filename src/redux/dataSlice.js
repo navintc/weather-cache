@@ -4,8 +4,7 @@ export const dataSlice = createSlice({
   name: 'dataPack',
   initialState: {
     time: 0,
-    dataSet: null,
-    selectedLocation: null
+    dataSet: null
   },
   reducers: {
     updateDataPack: (state, action) => {
@@ -15,13 +14,12 @@ export const dataSlice = createSlice({
 
     },
 
-    selectlocation: (state, action) => {
-      state.selectedLocation = action.payload;
-    },
   },
 })
 
+
+
 // Action creators are generated for each case reducer function
 export const { updateDataPack } = dataSlice.actions;
-export const { selectlocation } = dataSlice.actions;
+
 export default dataSlice.reducer;

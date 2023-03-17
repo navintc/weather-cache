@@ -1,6 +1,6 @@
 import { Card, Col, Row } from "react-bootstrap";
 import { useSelector, useDispatch } from 'react-redux';
-import { selectlocation } from '../../../../redux/dataSlice';
+import { selectlocation } from '../../../../redux/switcherSlice';
 import Back from "../../../../assets/img/back.png";
 import Wind from "../../../../assets/img/wind.png";
 import Weatherdesc from "../../../../components/weatherdesc/weatherdesc";
@@ -8,15 +8,25 @@ import './largeCard.css';
 import Weatherdesc2 from "../../../../components/weatherdesc/weatherdesc2";
 
 
-function LargeCard(){
+function LargeCard(props){
     const dispatch = useDispatch();
-    var id = 5;
-    var dataState = useSelector((state) => state.dataPack.dataSet[5]);
-    console.log(dataState.name);
 
     const backBtn = () =>{
         dispatch(selectlocation(null));
     }
+
+    var id = props.location;
+    var dataState = useSelector((state) => state.dataPack.dataSet);
+
+    if(dataState!=null){
+    for (let i=0; i<dataState.length; i++){
+        if (dataState[i].name === id){
+            dataState = dataState[i];
+        }
+    }
+    console.log(dataState.name);
+
+
     
     var sunrise = dataState.sys.sunrise;
     var sunset = dataState.sys.sunset;
@@ -62,7 +72,7 @@ function LargeCard(){
     // var randomColor = {backgroundColor: `#${Math.floor(Math.random()*16777215).toString(16)}`};
     var randomColor = {backgroundColor: `${color}`};
 
-
+    }
 
 
     
@@ -73,7 +83,7 @@ function LargeCard(){
                     <div className="large-card-top" style={randomColor}>
 
                         <div className="close-bar">
-                            <div className="back" onclick={backBtn()}>
+                            <div className="back" onClick={backBtn}>
                                 <img src={Back}/>
                             </div>
                         </div>

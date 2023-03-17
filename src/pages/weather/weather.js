@@ -7,6 +7,8 @@ import { updateDataPack } from '../../redux/dataSlice';
 import { useSelector, useDispatch } from 'react-redux';
 import Cities from './components/cities/cities';
 import Footerw from '../../components/footer/footer';
+import LargeCard from './components/largeCard/largeCard';
+import { selectlocation } from '../../redux/switcherSlice';
 // import LargeCard from './components/largeCard/largeCard';
 
 
@@ -14,12 +16,18 @@ function Weather(){
     const [cityWeather, setCityWeather] = useState(null);
     const [shouldFetch, setShouldFetch] = useState(null);
     
+    
     const dispatch = useDispatch()
 
     //must find a way to check on this time state (suggestion: useState but it cant be used)
     var timeState = useSelector((state) => state.dataPack.time);
     var dataState = useSelector((state) => state.dataPack.dataSet);
-    
+    const selectedLocation = useSelector((state) => state.selectorPack.selectedLocation);
+    console.log(selectedLocation);
+
+    useEffect(() => {
+        console.log(selectedLocation);
+    },[selectedLocation])
 
     useEffect(() => {
         let obj = [];
@@ -60,7 +68,12 @@ function Weather(){
         <div className='weather'>
             <div className='logo-bar'>
                 <LogoWeather/>
-                <Cities/>
+                {selectedLocation === undefined || selectedLocation === null ? (
+                    <Cities/>
+                ):( 
+                     <LargeCard location={selectedLocation}/>
+                )}
+                
                 <Footerw/>            
             </div>
         </div>
