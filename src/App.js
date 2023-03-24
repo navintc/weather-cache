@@ -1,6 +1,10 @@
 import './App.css';
 import Weather from './pages/weather/weather';
+import React from 'react';
+// import 'dotenv/config';
 
+console.log(process.env);
+// eslint-disable-next-line require-jsdoc
 function App() {
   return (
     <div className="App">
@@ -15,7 +19,7 @@ function App() {
 
       <script
         src="https://cdn.jsdelivr.net/npm/react-bootstrap@next/dist/react-bootstrap.min.js"
-        crossoOigin='true'></script>
+        crossOrigin='true'></script>
 
       <script>var Alert = ReactBootstrap.Alert;</script>
     </div>

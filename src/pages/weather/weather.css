@@ -4,6 +4,7 @@
     background-repeat: no-repeat;
     background-color: #1d2027;
     background-size: 100%;
+    overflow-y: hidden;
 }
 
 .logo-bar{

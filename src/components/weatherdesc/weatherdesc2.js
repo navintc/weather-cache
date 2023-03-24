@@ -1,30 +1,41 @@
-import Clouds from "../../assets/img/clouds.png";
-import ClearSky from "../../assets/img/clear sky.png";
-import LightRain from "../../assets/img/lightrain.png";
-import BrokenClouds from "../../assets/img/broken-clouds.png";
+import React from 'react';
+import Clouds from '../../assets/img/clouds.png';
+import ClearSky from '../../assets/img/clear sky.png';
+import LightRain from '../../assets/img/lightrain.png';
+import BrokenClouds from '../../assets/img/broken-clouds.png';
+import './weatherdesc.css';
+import PropTypes from 'prop-types';
 
 
-import "./weatherdesc.css"
-function Weatherdesc2(props){
-
-    if (props.desc == "few clouds"){
-        var ico = Clouds;
-    } else if (props.desc == "clear sky"){
-        var ico = ClearSky;
-    } else if (props.desc == "light rain"){
-        var ico = LightRain;
-    } else{
-        var ico = BrokenClouds;
-    }
+Weatherdesc2.propTypes = {
+  desc: PropTypes.string.isRequired,
+};
 
 
+// eslint-disable-next-line require-jsdoc
+function Weatherdesc2(props) {
+  let ico;
 
-    return(
-        <div className="justify-content-md-center verti">
-            <img className="des-ico2" src={ico}/>
-            <p className="no-bot-mar">{props.desc}</p>
-        </div>
-    )
+  if (props.desc == 'few clouds') {
+    // eslint-disable-next-line no-unused-vars
+    ico = Clouds;
+  } else if (props.desc == 'clear sky') {
+    // eslint-disable-next-line no-unused-vars
+    ico = ClearSky;
+  } else if (props.desc == 'light rain') {
+    // eslint-disable-next-line no-unused-vars
+    ico = LightRain;
+  } else {
+    // eslint-disable-next-line no-unused-vars
+    ico = BrokenClouds;
+  }
+
+  return (
+    <div className="justify-content-md-center verti">
+      <img className="des-ico2" src={ico}/>
+      <p className="no-bot-mar">{props.desc}</p>
+    </div>
+  );
 }
 
 export default Weatherdesc2;

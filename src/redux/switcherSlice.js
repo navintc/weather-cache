@@ -1,10 +1,8 @@
-import { createSlice } from '@reduxjs/toolkit'
-
-
+import {createSlice} from '@reduxjs/toolkit';
 export const switcherSlice = createSlice({
   name: 'switcherPack',
   initialState: {
-    selectedLocation: null
+    selectedLocation: null,
   },
   reducers: {
     selectlocation: (state, action) => {
@@ -12,11 +10,8 @@ export const switcherSlice = createSlice({
       console.log(action.payload);
     },
   },
-})
-
+});
 
 // Action creators are generated for each case reducer function
-
-export const { selectlocation } = switcherSlice.actions;
-
+export const {selectlocation} = switcherSlice.actions;
 export default switcherSlice.reducer;

@@ -2,10 +2,12 @@
     color: white;
     border-top-left-radius: 5px;
     border-top-right-radius: 5px;
-
     padding:0.5rem;
     background-repeat: no-repeat;
     background-position: 0px 3rem;
+}
+.snap-data-box{
+    margin-bottom: 3rem;
 }
 .card-root2{
     padding-top:3rem;
@@ -19,6 +21,7 @@
     width:5px;
     float: left;
     margin-left: 13px;
+    cursor: pointer;
 }
 
 .line2{
@@ -26,13 +29,8 @@
     height: 7rem;
     background-color: rgba(255, 255, 255, 0.168);
 }
-.data-body{
-
-}
 
 .txt-temp2{
-    
     font-family: opensans-semi;
     font-size: 3rem;
-    
 }

@@ -1,4 +1,4 @@
-import { configureStore } from '@reduxjs/toolkit';
+import {configureStore} from '@reduxjs/toolkit';
 import dataReducer from './dataSlice';
 import switcherReducer from './switcherSlice';
 
@@ -7,4 +7,4 @@ export default configureStore({
     dataPack: dataReducer,
     selectorPack: switcherReducer,
   },
-})
+});

@@ -1,5 +1,6 @@
 .search-box{
     margin-top: 3rem;
+    width:100vw;
 }
 .form-control{
     background-color: #1f2128 !important;

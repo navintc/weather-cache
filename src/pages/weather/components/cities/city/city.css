@@ -4,12 +4,17 @@
     margin-top: 2rem;
     min-height: 15rem;
     border: 0px !important;
-   
+    cursor: pointer;
 }
-
 .small-p{
     font-size: 12px;
-    
+}
+.suntimes{
+    margin-left: 5px;
+}
+.wind-info{
+    margin-left:5px;
+    margin-right: 5px;
 }
 .town{
     margin-top:10px;
@@ -30,10 +35,9 @@
     font-size: 2.5rem;
 }
 .card-top{
-    
-    
-    background-image: url(../../../../../../assets/img/cloud\ bg.png);
+    background-image: url(../../../../../assets/img/cloudbg.png);
     color: white;
+    background-size: 100%;
     border-top-left-radius: 5px;
     border-top-right-radius: 5px;
     padding:0.5rem;
@@ -43,12 +47,14 @@
 .card-top-marg{
     margin: 2rem;
 }
+.adv-data{
+    margin-right: 8px;
+}
 .close{
     width:5px;
     float: right;
     margin-right: 13px;
 }
-
 .card-bot{
     background-color: #383b47;
     padding:1.4rem;
@@ -61,15 +67,12 @@
     height: 3.5rem;
     background-color: rgba(255, 255, 255, 0.061);
 }
-
 .wind-ico{
     margin-bottom: 0.4rem;
 }
-
 .info-type{
     font-family: openSans-semi;
 }
-
 .no-bot-mar{
     margin-bottom: 0px;
 }
