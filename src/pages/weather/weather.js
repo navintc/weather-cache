@@ -21,8 +21,8 @@ function Weather() {
   // must find a way to check on this time state (suggestion: useState but it can't be used)
   const timeState = useSelector((state) => state.dataPack.time);
   const dataState = useSelector((state) => state.dataPack.dataSet);
-  // eslint-disable-next-line max-len
-  const selectedLocation = useSelector((state) => state.selectorPack.selectedLocation);
+  const selectedLocation = useSelector((state) =>
+    state.selectorPack.selectedLocation);
 
 
   useEffect(() => {

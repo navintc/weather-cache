@@ -17,7 +17,7 @@ City.propTypes = {
 };
 
 /**
- * @param {Props} props - All the required data from the dataset is taken
+ * @param {props} props - All the required data from the dataset is taken
  * @return {JSX.Element} jsx content required for the footer.
  */
 function City(props) {
@@ -26,7 +26,6 @@ function City(props) {
   const selectLoc = () =>{
     // eslint-disable-next-line react/prop-types
     dispatch(selectlocation(props.name));
-    // console.log(props.name);
   };
 
 
@@ -87,7 +86,7 @@ function City(props) {
         <div className="card-top" style={randomColor}>
           <div className="close-bar">
             <div className="close">
-              <img src={Close}/>
+              <img src={Close} alt={'close button'}/>
             </div>
           </div>
           <div className="card-top-marg  d-flex">
@@ -96,7 +95,7 @@ function City(props) {
               <h4 className="txt-location">{props.name}, {props.country}</h4>
               <p>{citydateFormattedTime}</p>
 
-              <div className="justify-content-md-center">
+              <div className="justify-content-center">
                 <Weatherdesc desc={props.weather[0].description}/>
               </div>
             </Col>
@@ -133,18 +132,19 @@ function City(props) {
                     Visibility: </span>{props.visibility/1000}km</p>
           </Col>
 
-          <div className="line"></div>
+          <div className="line"/>
 
           <Col className="small-p wind-info">
             <div>
-              <img src={Wind} style={winddegree} className="wind-ico"/>
+              <img src={Wind} style={winddegree}
+                className="wind-ico" alt={'wind direction'}/>
             </div>
             {/* eslint-disable-next-line react/prop-types */}
             <p className="no-bot-mar">{Math.round(props.wind)}
               m/s {props.speeddeg}Degree</p>
           </Col>
 
-          <div className="line"></div>
+          <div className="line"/>
 
           <Col className="small-p justify-content-md-center">
             <div className={'suntimes'}>

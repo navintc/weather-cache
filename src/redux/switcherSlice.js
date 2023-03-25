@@ -7,7 +7,6 @@ export const switcherSlice = createSlice({
   reducers: {
     selectlocation: (state, action) => {
       state.selectedLocation = action.payload;
-      console.log(action.payload);
     },
   },
 });

@@ -71,7 +71,6 @@ function LargeCard(props) {
 
     // wind degree
     winddegree = {transform: `rotate(${dataState.wind.deg - 45}deg)`};
-    console.log(winddegree);
   }
 
   // random dark color generator
@@ -90,13 +89,13 @@ function LargeCard(props) {
 
             <div className="close-bar">
               <div className="back" onClick={backBtn}>
-                <img src={Back}/>
+                <img src={Back} alt={'Back Button'}/>
               </div>
             </div>
 
             <div className="card-root2">
-              {/* eslint-disable-next-line max-len */}
-              <h4 className="txt-location">{dataState.name}, {dataState.country}</h4>
+              <h4 className="txt-location">{dataState?.name ??
+                  'Unknown location'}, {dataState.country}</h4>
               <p>{citydateFormattedTime}</p>
             </div>
             <Row className="justify-content-md-center">
@@ -109,7 +108,7 @@ function LargeCard(props) {
                       desc={dataState.weather[0].description}/>
                   </div>
                 </Col>
-                <div className="line2"></div>
+                <div className="line2"/>
                 <Col>
                   <h3 className="txt-temp2">
                     {Math.round(dataState.main.temp)}°
@@ -138,17 +137,18 @@ function LargeCard(props) {
                   Visibility: </span>{dataState.visibility/1000}km</p>
             </Col>
 
-            <div className="line"></div>
+            <div className="line"/>
 
             <Col className="small-p ">
               <div>
-                <img src={Wind} style={winddegree} className="wind-ico"/>
+                <img src={Wind} style={winddegree}
+                  className="wind-ico" alt={'wind direction'}/>
               </div>
               <p className="no-bot-mar">
                 {dataState.wind.speed}m/s {dataState.wind.deg}Degree</p>
             </Col>
 
-            <div className="line"></div>
+            <div className="line"/>
 
             <Col className="small-p justify-content-md-center">
               <div>

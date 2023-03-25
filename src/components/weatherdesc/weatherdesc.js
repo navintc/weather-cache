@@ -28,9 +28,8 @@ function Weatherdesc(props) {
   }
 
   return (
-    <div className="d-flex justify-content-md-center">
-      <img className="des-ico" src={ico}/>
-      {console.log(props.desc.length)}
+    <div className="d-flex justify-content-center">
+      <img className="des-ico" src={ico} alt={'day-icon'}/>
       {props.desc.length < 16 ? (
           <p className="no-bot-mar">{props.desc}</p>
       ) : (

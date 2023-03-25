@@ -16,8 +16,8 @@ function Cities() {
     <div>
       <div className="search-box">
 
-        <Row className="justify-content-md-center mx-auto">
-          <Col xs={11} sm={8} md={6} lg={4} xl={3}>
+        <Row className="justify-content-center mx-auto">
+          <Col xs={11} sm={8} md={6} lg={5} xl={4} >
             <Form>
               <Form.Group className="d-flex" controlId="formBasicEmail">
                 {/* eslint-disable-next-line max-len */}
@@ -61,6 +61,6 @@ function Cities() {
       </div>
     </div>
   );
-};
+}
 
 export default Cities;
