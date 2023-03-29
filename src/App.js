@@ -1,5 +1,5 @@
 import './App.css';
-import Weather from './pages/weather/weather';
+import Weather from './pages/weather';
 import React from 'react';
 
 console.log(process.env);

@@ -1,13 +1,13 @@
 import React, {useState, useEffect} from 'react';
-import LogoWeather from './components/logoWeather/logoWeather';
+import LogoWeather from './logoWeather/logoWeather';
 import './weather.css';
-import {getWeatherData} from '../../api/client';
-import cityData from '../../json/cities.json';
-import {updateDataPack} from '../../redux/dataSlice';
+import {getWeatherData} from '../api/client';
+import cityData from '../json/cities.json';
+import {updateDataPack} from '../redux/dataSlice';
 import {useSelector, useDispatch} from 'react-redux';
-import Cities from './components/cities/cities';
-import Footerw from '../../components/footer/footer';
-import LargeCard from './components/largeCard/largeCard';
+import Cities from './cities/cities';
+import Footerw from '../components/footer/footer';
+import LargeCard from './largeCard/largeCard';
 
 // eslint-disable-next-line require-jsdoc
 function Weather() {

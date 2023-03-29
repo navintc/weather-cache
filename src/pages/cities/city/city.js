@@ -1,10 +1,10 @@
 import React from 'react';
 import {Card, Col} from 'react-bootstrap';
 import './city.css';
-import Wind from '../../../../../assets/img/wind.png';
-import Close from '../../../../../assets/img/close.png';
-import Weatherdesc from '../../../../../components/weatherdesc/weatherdesc';
-import {selectlocation} from '../../../../../redux/switcherSlice';
+import Wind from '../../../assets/img/wind.png';
+import Close from '../../../assets/img/close.png';
+import Weatherdesc from '../../../components/weatherdesc/weatherdesc';
+import {selectlocation} from '../../../redux/switcherSlice';
 import {useDispatch} from 'react-redux';
 import PropTypes from 'prop-types';
 

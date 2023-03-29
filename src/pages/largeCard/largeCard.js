@@ -1,11 +1,11 @@
 import React from 'react';
 import {Card, Col, Row} from 'react-bootstrap';
 import {useSelector, useDispatch} from 'react-redux';
-import {selectlocation} from '../../../../redux/switcherSlice';
-import Back from '../../../../assets/img/back.png';
-import Wind from '../../../../assets/img/wind.png';
+import {selectlocation} from '../../redux/switcherSlice';
+import Back from '../../assets/img/back.png';
+import Wind from '../../assets/img/wind.png';
 import './largeCard.css';
-import Weatherdesc2 from '../../../../components/weatherdesc/weatherdesc2';
+import Weatherdesc2 from '../../components/weatherdesc/weatherdesc2';
 
 
 // eslint-disable-next-line require-jsdoc
