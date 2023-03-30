@@ -9,9 +9,9 @@ import {useDispatch} from 'react-redux';
 import PropTypes from 'prop-types';
 
 City.propTypes = {
-  sunrise: PropTypes.instanceOf(Date).isRequired,
-  sunset: PropTypes.instanceOf(Date).isRequired,
-  date: PropTypes.instanceOf(Date).isRequired,
+  sunrise: PropTypes.number.isRequired,
+  sunset: PropTypes.number.isRequired,
+  date: PropTypes.number.isRequired,
   speeddeg: PropTypes.number.isRequired,
   weather: PropTypes.array.isRequired,
 };
@@ -81,7 +81,7 @@ function City(props) {
 
   return (
 
-    <Col xs={12} sm={12} md={12} lg={6} onClick={selectLoc}>
+    <Col onClick={selectLoc}>
       <Card className="city-card">
         <div className="card-top" style={randomColor}>
           <div className="close-bar">

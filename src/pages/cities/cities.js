@@ -35,7 +35,8 @@ function Cities() {
             <Col xs={12} sm={12} md={12} lg={10} xl={9}>
               <Row className="d-flex">
                 {dataState != null ? (dataState.map((dat) => (
-                  <>
+                  <Col xs={12} sm={12} md={12} lg={6}
+                    key={dat.id}>
                     <City
                       key={dat.id} id={dat.id} name={dat.name}
                       weather={dat.weather} date={dat.dt}
@@ -45,7 +46,7 @@ function Cities() {
                       wind={dat.wind.speed} sunrise={dat.sys.sunrise}
                       country={dat.sys.country} sunset={dat.sys.sunset}
                       speeddeg={dat.wind.deg}/>
-                  </>
+                  </Col>
                 ))
                 ) : (
 

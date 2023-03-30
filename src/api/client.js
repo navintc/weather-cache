@@ -3,9 +3,6 @@ import {API_URL} from '../consts';
 
 const API_KEY = process.env.REACT_APP_OPENWEATHER_API_KEY;
 
-console.log(API_KEY);
-console.log(API_URL);
-
 // gets the weather data
 export const getWeatherData = async (ids) => {
   try {

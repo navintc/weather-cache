@@ -24,30 +24,39 @@ function Weather() {
   const selectedLocation = useSelector((state) =>
     state.selectorPack.selectedLocation);
 
-
-  useEffect(() => {
-    console.log(selectedLocation);
-  }, [selectedLocation]);
-
   useEffect(() => {
     const obj = [];
     const nowtime = new Date().getTime();
+    const localdt = JSON.parse(localStorage.getItem('weatherDataSet'));
+    const localdttime = localStorage.getItem('weatherTime');
 
-    // axios call
-    if ((nowtime-timeState === (5*60)) || dataState === null ) {
-      for (let i = 0; i < cityData.List.length; i++) {
-        getWeatherData(cityData.List[i].CityCode)
-            .then((data) =>{
-              obj.push(data);
+    // checkin data availability in local storage
+    if ((nowtime-localdttime > (5*60*1000)) || localdt === null ) {
+      // axios call
+      if ((nowtime-timeState > (5*60*1000)) || dataState === null ) {
+        // iterating through the cities in the json
+        for (let i = 0; i < cityData.List.length; i++) {
+          getWeatherData(cityData.List[i].CityCode)
+              .then((data) =>{
+                obj.push(data);
 
-              // check if all data has been fetched
-              if (obj.length === cityData.List.length) {
-                setCityWeather(obj);
-                dispatch(updateDataPack(obj));
-              }
-            })
-            .catch((error) => console.error(error));
+                // check if all data has been fetched and saving them to
+                // local storage and redux
+                if (obj.length === cityData.List.length) {
+                  setCityWeather(obj);
+                  dispatch(updateDataPack(obj));
+                  const t1 = new Date().getTime();
+                  localStorage.setItem('weatherDataSet', JSON.stringify(obj));
+                  localStorage.setItem('weatherTime', t1);
+                }
+              })
+              .catch((error) => console.error(error));
+        }
       }
+    } else {
+      // fetching data from the local storage
+      setCityWeather(localdt);
+      dispatch(updateDataPack(localdt));
     }
   }, [shouldFetch]);
 

@@ -2,7 +2,6 @@ import './App.css';
 import Weather from './pages/weather';
 import React from 'react';
 
-console.log(process.env);
 // eslint-disable-next-line require-jsdoc
 function App() {
   return (
