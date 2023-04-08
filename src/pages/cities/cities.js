@@ -2,8 +2,9 @@ import React from 'react';
 import {Container, Col, Row, Button, Spinner} from 'react-bootstrap';
 import Form from 'react-bootstrap/Form';
 import './cities.css';
-import {useSelector} from 'react-redux';
-import City from './city/city';
+// import {useSelector} from 'react-redux';
+// import City from './city/city';
+import cityData from '../../json/cities.json';
 
 
 /**
@@ -11,7 +12,7 @@ import City from './city/city';
  * the main body of the weather page
  */
 function Cities() {
-  const dataState = useSelector((state) => state.dataPack.dataSet);
+  // const dataState = useSelector((state) => state.dataPack.dataSet);
   return (
     <div>
       <div className="search-box">
@@ -34,18 +35,22 @@ function Cities() {
           <Row className="justify-content-md-center">
             <Col xs={12} sm={12} md={12} lg={10} xl={9}>
               <Row className="d-flex">
-                {dataState != null ? (dataState.map((dat) => (
+                {cityData != null ? (cityData.List.map((dat) => (
                   <Col xs={12} sm={12} md={12} lg={6}
                     key={dat.id}>
-                    <City
-                      key={dat.id} id={dat.id} name={dat.name}
-                      weather={dat.weather} date={dat.dt}
-                      temp={dat.main.temp} humidity={dat.main.humidity}
-                      pressure={dat.main.pressure} maxtemp={dat.main.temp_max}
-                      mintemp={dat.main.temp_min} visibility={dat.visibility}
-                      wind={dat.wind.speed} sunrise={dat.sys.sunrise}
-                      country={dat.sys.country} sunset={dat.sys.sunset}
-                      speeddeg={dat.wind.deg}/>
+                    {/* <City*/}
+                    {/*  key={dat.id} id={dat.id} name={dat.name}*/}
+                    {/*  weather={dat.weather} date={dat.dt}*/}
+                    {/*  temp={dat.main.temp} humidity={dat.main.humidity}*/}
+                    {/* eslint-disable-next-line max-len */}
+                    {/*  pressure={dat.main.pressure} maxtemp={dat.main.temp_max}*/}
+                    {/* eslint-disable-next-line max-len */}
+                    {/*  mintemp={dat.main.temp_min} visibility={dat.visibility}*/}
+                    {/*  wind={dat.wind.speed} sunrise={dat.sys.sunrise}*/}
+                    {/*  country={dat.sys.country} sunset={dat.sys.sunset}*/}
+                    {/*  speeddeg={dat.wind.deg}/>*/}
+
+                    {dat.CityName}
                   </Col>
                 ))
                 ) : (
