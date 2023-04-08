@@ -3,7 +3,8 @@ import {Card, Col} from 'react-bootstrap';
 import './city.css';
 import Wind from '../../../assets/img/wind.png';
 import Close from '../../../assets/img/close.png';
-import Weatherdesc from '../../../components/weatherdesc/weatherdesc';
+import WeatherdescSmCard from
+  '../../../components/weatherdesc/weatherdesc-sm-card';
 import {selectlocation} from '../../../redux/switcherSlice';
 import {useDispatch} from 'react-redux';
 import PropTypes from 'prop-types';
@@ -96,7 +97,7 @@ function City(props) {
               <p>{citydateFormattedTime}</p>
 
               <div className="justify-content-center">
-                <Weatherdesc desc={props.weather[0].description}/>
+                <WeatherdescSmCard desc={props.weather[0].description}/>
               </div>
             </Col>
 
