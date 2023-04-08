@@ -5,7 +5,8 @@ import {selectlocation} from '../../redux/switcherSlice';
 import Back from '../../assets/img/back.png';
 import Wind from '../../assets/img/wind.png';
 import './largeCard.css';
-import Weatherdesc2 from '../../components/weatherdesc/weatherdesc2';
+import WeatherdescLgCard from
+  '../../components/weatherdesc/weatherdesc-lg-card';
 
 
 // eslint-disable-next-line require-jsdoc
@@ -104,7 +105,7 @@ function LargeCard(props) {
 
 
                   <div>
-                    <Weatherdesc2
+                    <WeatherdescLgCard
                       desc={dataState.weather[0].description}/>
                   </div>
                 </Col>

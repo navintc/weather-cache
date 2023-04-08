@@ -7,13 +7,13 @@ import './weatherdesc.css';
 import PropTypes from 'prop-types';
 
 
-Weatherdesc2.propTypes = {
+WeatherdescLgCard.propTypes = {
   desc: PropTypes.string.isRequired,
 };
 
 
 // eslint-disable-next-line require-jsdoc
-function Weatherdesc2(props) {
+function WeatherdescLgCard(props) {
   let ico;
 
   if (props.desc == 'few clouds') {
@@ -38,4 +38,4 @@ function Weatherdesc2(props) {
   );
 }
 
-export default Weatherdesc2;
+export default WeatherdescLgCard;

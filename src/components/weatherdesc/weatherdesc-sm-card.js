@@ -6,13 +6,13 @@ import BrokenClouds from '../../assets/img/broken-clouds.png';
 import './weatherdesc.css';
 import PropTypes from 'prop-types';
 
-Weatherdesc.propTypes = {
+WeatherdescSmCard.propTypes = {
   desc: PropTypes.string.isRequired,
 };
 
 let ico;
 // eslint-disable-next-line require-jsdoc
-function Weatherdesc(props) {
+function WeatherdescSmCard(props) {
   if (props.desc === 'few clouds') {
     // eslint-disable-next-line no-unused-vars
     ico = Clouds;
@@ -42,4 +42,4 @@ function Weatherdesc(props) {
   );
 }
 
-export default Weatherdesc;
+export default WeatherdescSmCard;
