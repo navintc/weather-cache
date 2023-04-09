@@ -1,6 +1,6 @@
 import React from 'react';
 import {Card, Col, Row} from 'react-bootstrap';
-import {useSelector, useDispatch} from 'react-redux';
+import {useDispatch} from 'react-redux';
 import {selectlocation} from '../../redux/switcherSlice';
 import Back from '../../assets/img/back.png';
 import Wind from '../../assets/img/wind.png';
@@ -16,7 +16,6 @@ function LargeCard(props) {
   let citydateFormattedTime = 0;
   let sunsetFormattedTime = 0;
   let sunriseFormattedTime = 0;
-  let winddegree = 0;
 
   const backBtn = () =>{
     dispatch(selectlocation(null));
@@ -24,7 +23,9 @@ function LargeCard(props) {
 
   // eslint-disable-next-line react/prop-types
   const id = props.location;
-  let dataState = useSelector((state) => state.dataPack.dataSet);
+  // eslint-disable-next-line react/prop-types
+  let dataState = JSON.parse(localStorage.getItem(id+'ds'));
+  console.log(dataState);
 
   if (dataState!=null) {
     for (let i=0; i<dataState.length; i++) {
@@ -68,10 +69,6 @@ function LargeCard(props) {
     const citydateampm = citydatehours >= 12 ? 'pm' : 'am';
     citydateFormattedTime = `${citydatehours % 12 || 12}:${citydateminutes <
       10 ? '0' : ''}${citydateminutes}${citydateampm} , ${month} ${day} `;
-
-
-    // wind degree
-    winddegree = {transform: `rotate(${dataState.wind.deg - 45}deg)`};
   }
 
   // random dark color generator
@@ -142,7 +139,7 @@ function LargeCard(props) {
 
             <Col className="small-p ">
               <div>
-                <img src={Wind} style={winddegree}
+                <img src={Wind}
                   className="wind-ico" alt={'wind direction'}/>
               </div>
               <p className="no-bot-mar">
