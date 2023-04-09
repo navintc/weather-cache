@@ -2,21 +2,17 @@ import React from 'react';
 import {Container, Col, Row, Button, Spinner} from 'react-bootstrap';
 import Form from 'react-bootstrap/Form';
 import './cities.css';
-// import {useSelector} from 'react-redux';
 import City from './city/city';
 import cityData from '../../json/cities.json';
-
 
 /**
  * @return {JSX.Element} jsx content to control
  * the main body of the weather page
  */
 function Cities() {
-  // const dataState = useSelector((state) => state.dataPack.dataSet);
   return (
     <div>
       <div className="search-box">
-
         <Row className="justify-content-center mx-auto">
           <Col xs={11} sm={8} md={6} lg={5} xl={4} >
             <Form>
@@ -36,23 +32,8 @@ function Cities() {
             <Col xs={12} sm={12} md={12} lg={10} xl={9}>
               <Row className="d-flex">
                 {cityData != null ? (cityData.List.map((dat) => (
-                  <Col xs={12} sm={12} md={12} lg={6}
-                    key={dat.id}>
-                    <City
-                      key={dat.id} id={dat.CityCode}/>
-
-                    {/* key={dat.id} id={dat.id} name={dat.name} */}
-                    {/* weather={dat.weather} date={dat.dt} */}
-                    {/* temp={dat.main.temp} humidity={dat.main.humidity} */}
-                    {/* eslint-disable-next-line max-len */}
-                    {/* pressure={dat.main.pressure} maxtemp={dat.main.temp_max} */}
-                    {/* eslint-disable-next-line max-len */}
-                    {/* mintemp={dat.main.temp_min} visibility={dat.visibility} */}
-                    {/* wind={dat.wind.speed} sunrise={dat.sys.sunrise} */}
-                    {/* country={dat.sys.country} sunset={dat.sys.sunset} */}
-                    {/* speeddeg={dat.wind.deg} */}
-
-                    {dat.CityName}
+                  <Col key={dat.CityCode} xs={12} sm={12} md={12} lg={6}>
+                    <City id={dat.CityCode}/>
                   </Col>
                 ))
                 ) : (

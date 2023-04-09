@@ -6,27 +6,21 @@ import BrokenClouds from '../../assets/img/broken-clouds.png';
 import './weatherdesc.css';
 import PropTypes from 'prop-types';
 
-
 WeatherdescLgCard.propTypes = {
   desc: PropTypes.string.isRequired,
 };
-
 
 // eslint-disable-next-line require-jsdoc
 function WeatherdescLgCard(props) {
   let ico;
 
-  if (props.desc == 'few clouds') {
-    // eslint-disable-next-line no-unused-vars
+  if (props.desc === 'few clouds') {
     ico = Clouds;
-  } else if (props.desc == 'clear sky') {
-    // eslint-disable-next-line no-unused-vars
+  } else if (props.desc === 'clear sky') {
     ico = ClearSky;
-  } else if (props.desc == 'light rain') {
-    // eslint-disable-next-line no-unused-vars
+  } else if (props.desc === 'light rain') {
     ico = LightRain;
   } else {
-    // eslint-disable-next-line no-unused-vars
     ico = BrokenClouds;
   }
 

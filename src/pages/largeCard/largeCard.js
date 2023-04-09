@@ -7,12 +7,15 @@ import Wind from '../../assets/img/wind.png';
 import './largeCard.css';
 import WeatherdescLgCard from
   '../../components/weatherdesc/weatherdesc-lg-card';
+import PropTypes from 'prop-types';
 
+LargeCard.propTypes = {
+  location: PropTypes.string.isRequired,
+};
 
 // eslint-disable-next-line require-jsdoc
 function LargeCard(props) {
   const dispatch = useDispatch();
-
   let citydateFormattedTime = 0;
   let sunsetFormattedTime = 0;
   let sunriseFormattedTime = 0;
@@ -21,11 +24,8 @@ function LargeCard(props) {
     dispatch(selectlocation(null));
   };
 
-  // eslint-disable-next-line react/prop-types
   const id = props.location;
-  // eslint-disable-next-line react/prop-types
   let dataState = JSON.parse(localStorage.getItem(id+'ds'));
-  console.log(dataState);
 
   if (dataState!=null) {
     for (let i=0; i<dataState.length; i++) {
@@ -38,9 +38,7 @@ function LargeCard(props) {
     let sunset = dataState.sys.sunset;
     let citydate = dataState.dt;
 
-
     // sunrise
-    // multiply by 1000 to convert to milliseconds
     sunrise = new Date(sunrise * 1000);
     const sunrisehours = sunrise.getHours();
     const sunriseminutes = sunrise.getMinutes();
@@ -49,7 +47,6 @@ function LargeCard(props) {
       10 ? '0' : ''}${sunriseminutes}${sunriseampm}`;
 
     // sunset
-    // multiply by 1000 to convert to milliseconds
     sunset = new Date(sunset * 1000);
     const sunsethours = sunset.getHours();
     const sunsetminutes = sunset.getMinutes();
@@ -57,13 +54,10 @@ function LargeCard(props) {
     sunsetFormattedTime = `${sunsethours % 12 || 12}:${sunsetminutes <
       10 ? '0' : ''}${sunsetminutes}${sunsetampm}`;
 
-
     // citydate
-    // multiply by 1000 to convert to milliseconds
     citydate = new Date(citydate * 1000);
     const citydatehours = citydate.getHours();
     const citydateminutes = citydate.getMinutes();
-
     const month = citydate.toLocaleString('default', {month: 'short'});
     const day = citydate.getDate();
     const citydateampm = citydatehours >= 12 ? 'pm' : 'am';
@@ -76,7 +70,7 @@ function LargeCard(props) {
   for (let i = 0; i < 6; i++) {
     color += Math.floor(Math.random() * 10);
   }
-  // eslint-disable-next-line no-unused-vars
+
   const randomColor = {backgroundColor: `${color}`};
 
   return (
@@ -84,7 +78,6 @@ function LargeCard(props) {
       <Col xs={11} md={6} className="justify-content-md-center mx-auto">
         <Card className="city-card">
           <div className="large-card-top" style={randomColor}>
-
             <div className="close-bar">
               <div className="back" onClick={backBtn}>
                 <img src={Back} alt={'Back Button'}/>
@@ -99,8 +92,6 @@ function LargeCard(props) {
             <Row className="justify-content-md-center">
               <div className="snap-data-box col-sm-12 col-md-8 d-flex">
                 <Col xs={6} className="town">
-
-
                   <div>
                     <WeatherdescLgCard
                       desc={dataState.weather[0].description}/>
@@ -121,8 +112,6 @@ function LargeCard(props) {
                 </Col>
               </div>
             </Row>
-
-
           </div>
 
           <div className="card-bot d-flex">
@@ -156,7 +145,6 @@ function LargeCard(props) {
                     Sunset: </span> {sunsetFormattedTime}</p>
                 <p className="no-bot-mar"><span className="info-type">
                     ID: </span> {dataState.id}</p>
-
               </div>
             </Col>
           </div>

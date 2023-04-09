@@ -14,16 +14,12 @@ let ico;
 // eslint-disable-next-line require-jsdoc
 function WeatherdescSmCard(props) {
   if (props.desc === 'few clouds') {
-    // eslint-disable-next-line no-unused-vars
     ico = Clouds;
   } else if (props.desc === 'clear sky') {
-    // eslint-disable-next-line no-unused-vars
     ico = ClearSky;
   } else if (props.desc === 'light rain') {
-    // eslint-disable-next-line no-unused-vars
     ico = LightRain;
   } else {
-    // eslint-disable-next-line no-unused-vars
     ico = BrokenClouds;
   }
 

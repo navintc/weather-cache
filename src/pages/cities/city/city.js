@@ -20,38 +20,50 @@ City.propTypes = {
  */
 function City(props) {
   const dispatch = useDispatch();
-
   const [cityWeather, setCityWeather] = useState(null);
   const [shouldFetch, setShouldFetch] = useState(null);
-
-  const selectLoc = () =>{
-    dispatch(selectlocation(props.id));
-  };
   const nowtime = new Date().getTime();
   const localdt = JSON.parse(localStorage.getItem(props.id+'ds'));
-
   const [sunriseFormattedTime, setSunriseFormattedTime] = useState(null);
   const [sunsetFormattedTime, setSunsetFormattedTime] = useState(null);
   const [citydateFormattedTime, setCitydateFormattedTime] = useState(null);
   let randomColor = null;
 
+  const selectLoc = () =>{
+    dispatch(selectlocation(props.id));
+  };
+
+  const apiCall = () => {
+    getWeatherData(props.id)
+        .then((data) =>{
+          const t1 = new Date().getTime();
+          localStorage.setItem(props.id+'ds', JSON.stringify(data));
+          localStorage.setItem(props.id+'Time', t1);
+          setCityWeather(JSON.parse(localStorage.getItem(props.id+'ds')));
+        })
+        .catch((error) => console.error(error));
+  };
+
   useEffect(() => {
     const localdttime = localStorage.getItem(props.id+'Time');
-    // chckin data availability in local storage
-    if ((nowtime-localdttime > (5*60*1000)) || localdt === null ) {
-      // axios call
-      getWeatherData(props.id)
-          .then((data) =>{
-            const t1 = new Date().getTime();
-            localStorage.setItem(props.id+'ds', JSON.stringify(data));
-            localStorage.setItem(props.id+'Time', t1);
-            setCityWeather(JSON.parse(localStorage.getItem(props.id+'ds')));
-            console.log(cityWeather);
-          })
-          .catch((error) => console.error(error));
+
+    // Sri lankan data should be updated after 5mins and
+    // rest should update after 10mins
+
+    if (props.id === '1248991') {
+      // chckin data availability in local storage
+      if ((nowtime - localdttime > (5 * 60 * 1000)) || localdt === null) {
+        apiCall();
+      } else {
+        // fetching data from the local storage
+        setCityWeather(localdt);
+      }
     } else {
-      // fetching data from the local storage
-      setCityWeather(localdt);
+      if ((nowtime - localdttime > (10 * 60 * 1000)) || localdt === null) {
+        apiCall();
+      } else {
+        setCityWeather(localdt);
+      }
     }
   }, [shouldFetch]);
 
@@ -59,7 +71,7 @@ function City(props) {
   useEffect(() => {
     const intervalId = setInterval(() => {
       setCityWeather(null);
-      setShouldFetch(true);
+      setShouldFetch(new Date().getTime());
     }, 5 * 60 * 1000); // check every 5 mins
 
     return () => {
@@ -69,13 +81,11 @@ function City(props) {
 
   useEffect(() => {
     if (cityWeather !== null) {
-      console.log(cityWeather);
       let sunrise = cityWeather.sys.sunrise;
       let sunset = cityWeather.sys.sunset;
       let citydate = cityWeather.dt;
 
       // sunrise
-      // multiply by 1000 to convert to milliseconds
       sunrise = new Date(sunrise * 1000);
       const sunrisehours = sunrise.getHours();
       const sunriseminutes = sunrise.getMinutes();
@@ -85,7 +95,6 @@ function City(props) {
           ${sunriseminutes < 10 ? '0' : ''}${sunriseminutes}${sunriseampm}`);
 
       // sunset
-      // multiply by 1000 to convert to milliseconds
       sunset = new Date(sunset * 1000);
       const sunsethours = sunset.getHours();
       const sunsetminutes = sunset.getMinutes();
@@ -95,11 +104,9 @@ function City(props) {
           ${sunsetminutes < 10 ? '0' : ''}${sunsetminutes}${sunsetampm}`);
 
       // citydate
-      // multiply by 1000 to convert to milliseconds
       citydate = new Date(citydate * 1000);
       const citydatehours = citydate.getHours();
       const citydateminutes = citydate.getMinutes();
-
       const month = citydate.toLocaleString('default', {month: 'short'});
       const day = citydate.getDate();
       const citydateampm = citydatehours >= 12 ? 'pm' : 'am';
@@ -116,7 +123,6 @@ function City(props) {
   randomColor = {backgroundColor: `${color}`};
 
   return (
-
     <Col onClick={selectLoc}>
       <Card className="city-card">
         {cityWeather !== null ? (
@@ -155,9 +161,7 @@ function City(props) {
           </div>
 
           <div className="card-bot d-flex">
-
             <Col className="small-p left-align adv-data">
-
               <p className="no-bot-mar">
                 <span className="info-type">
                   {/* eslint-disable-next-line react/prop-types */}
