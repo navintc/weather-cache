@@ -137,14 +137,12 @@ function LargeCard(props) {
 
             <div className="line"/>
 
-            <Col className="small-p justify-content-md-center">
-              <div>
+            <Col className="small-p justify-content-md-center suntime-block">
+              <div className={'suntimes'}>
                 <p className="no-bot-mar"><span className="info-type">
                     Sunrise: </span>{sunriseFormattedTime}</p>
                 <p className="no-bot-mar"><span className="info-type">
                     Sunset: </span> {sunsetFormattedTime}</p>
-                <p className="no-bot-mar"><span className="info-type">
-                    ID: </span> {dataState.id}</p>
               </div>
             </Col>
           </div>

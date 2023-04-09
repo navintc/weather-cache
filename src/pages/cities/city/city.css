@@ -10,7 +10,15 @@
     font-size: 12px;
 }
 .suntimes{
+    width:100%;
     margin-left: 5px;
+    position: absolute;
+    top: 50%;
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+}
+.suntime-block{
+    position: relative;
 }
 .wind-info{
     margin-left:5px;

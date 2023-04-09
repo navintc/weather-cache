@@ -190,7 +190,7 @@ function City(props) {
 
             <div className="line"/>
 
-            <Col className="small-p justify-content-md-center">
+            <Col className="small-p suntime-block">
               <div className={'suntimes'}>
                 <p className="no-bot-mar">
                   <span className="info-type">
@@ -198,10 +198,6 @@ function City(props) {
                 <p className="no-bot-mar">
                   <span className="info-type">
                         Sunset: </span>{sunsetFormattedTime}</p>
-                <p className="no-bot-mar">
-                  <span className="info-type">
-                    {/* eslint-disable-next-line react/prop-types */}
-                    ID: </span> {props.id}</p>
               </div>
             </Col>
           </div>
