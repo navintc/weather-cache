@@ -3,7 +3,7 @@ import {Container, Col, Row, Button, Spinner} from 'react-bootstrap';
 import Form from 'react-bootstrap/Form';
 import './cities.css';
 // import {useSelector} from 'react-redux';
-// import City from './city/city';
+import City from './city/city';
 import cityData from '../../json/cities.json';
 
 
@@ -38,17 +38,19 @@ function Cities() {
                 {cityData != null ? (cityData.List.map((dat) => (
                   <Col xs={12} sm={12} md={12} lg={6}
                     key={dat.id}>
-                    {/* <City*/}
-                    {/*  key={dat.id} id={dat.id} name={dat.name}*/}
-                    {/*  weather={dat.weather} date={dat.dt}*/}
-                    {/*  temp={dat.main.temp} humidity={dat.main.humidity}*/}
+                    <City
+                      key={dat.id} id={dat.CityCode}/>
+
+                    {/* key={dat.id} id={dat.id} name={dat.name} */}
+                    {/* weather={dat.weather} date={dat.dt} */}
+                    {/* temp={dat.main.temp} humidity={dat.main.humidity} */}
                     {/* eslint-disable-next-line max-len */}
-                    {/*  pressure={dat.main.pressure} maxtemp={dat.main.temp_max}*/}
+                    {/* pressure={dat.main.pressure} maxtemp={dat.main.temp_max} */}
                     {/* eslint-disable-next-line max-len */}
-                    {/*  mintemp={dat.main.temp_min} visibility={dat.visibility}*/}
-                    {/*  wind={dat.wind.speed} sunrise={dat.sys.sunrise}*/}
-                    {/*  country={dat.sys.country} sunset={dat.sys.sunset}*/}
-                    {/*  speeddeg={dat.wind.deg}/>*/}
+                    {/* mintemp={dat.main.temp_min} visibility={dat.visibility} */}
+                    {/* wind={dat.wind.speed} sunrise={dat.sys.sunrise} */}
+                    {/* country={dat.sys.country} sunset={dat.sys.sunset} */}
+                    {/* speeddeg={dat.wind.deg} */}
 
                     {dat.CityName}
                   </Col>
