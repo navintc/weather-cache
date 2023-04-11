@@ -33,7 +33,7 @@ function Cities() {
               <Row className="d-flex">
                 {cityData != null ? (cityData.List.map((dat) => (
                   <Col key={dat.CityCode} xs={12} sm={12} md={12} lg={6}>
-                    <City id={dat.CityCode}/>
+                    <City id={dat.CityCode} exp={dat.Exp}/>
                   </Col>
                 ))
                 ) : (

@@ -12,6 +12,7 @@ import PropTypes from 'prop-types';
 
 City.propTypes = {
   id: PropTypes.string.isRequired,
+  exp: PropTypes.number.isRequired,
 };
 
 /**
@@ -49,21 +50,11 @@ function City(props) {
 
     // Sri lankan data should be updated after 5mins and
     // rest should update after 10mins
-
-    if (props.id === '1248991') {
-      // chckin data availability in local storage
-      if ((nowtime - localdttime > (5 * 60 * 1000)) || localdt === null) {
-        apiCall();
-      } else {
-        // fetching data from the local storage
-        setCityWeather(localdt);
-      }
+    if ((nowtime - localdttime > (props.exp)) || localdt === null) {
+      apiCall();
     } else {
-      if ((nowtime - localdttime > (10 * 60 * 1000)) || localdt === null) {
-        apiCall();
-      } else {
-        setCityWeather(localdt);
-      }
+      // fetching data from the local storage
+      setCityWeather(localdt);
     }
   }, [shouldFetch]);
 
@@ -72,7 +63,7 @@ function City(props) {
     const intervalId = setInterval(() => {
       setCityWeather(null);
       setShouldFetch(new Date().getTime());
-    }, 5 * 60 * 1000); // check every 5 mins
+    }, props.exp +1); // check every 5 mins
 
     return () => {
       clearInterval(intervalId);
@@ -113,7 +104,7 @@ function City(props) {
       setCitydateFormattedTime(`${citydatehours % 12 || 12}:${citydateminutes <
       10 ? '0' : ''}${citydateminutes}${citydateampm} , ${month} ${day} `);
     }
-  }), [cityWeather];
+  }, [cityWeather]);
 
   // random dark color generator
   let color = '#';
